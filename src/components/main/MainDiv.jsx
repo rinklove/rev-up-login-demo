@@ -58,8 +58,14 @@ const MainDiv = () => {
       {/* 로그인 후 토큰 정보 출력 */}
       {error && <p className="error-message">Error: {error}</p>}
       <div className="token-info">
-        <p><strong>Access Token:</strong> {accessToken ? accessToken : 'No access token found'}</p>
-        <p><strong>Refresh Token:</strong> {refreshToken ? refreshToken : 'No refresh token found'}</p>
+        <div>
+          <div><strong>Access Token</strong></div>
+          <div>{accessToken ? accessToken : 'No access token found'}</div>
+        </div>
+        <div>
+          <div><strong>Refresh Token:</strong></div>
+          <div>{refreshToken ? refreshToken : 'No refresh token found'}</div>
+        </div>
       </div>
     </div>
   );
