@@ -5,7 +5,7 @@ import WebPage from './pages/WebPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/*' element={<WebPage/>}/>
       </Routes>
