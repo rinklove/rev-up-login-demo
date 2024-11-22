@@ -1,0 +1,13 @@
+div.nav-container {
+  height: 200px;
+  padding: 1em;
+  
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+}
+
+a.auth-a {
+  margin-right: 1em;
+}
+

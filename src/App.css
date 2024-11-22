@@ -1,0 +1,16 @@
+.web-body {
+  min-height: 80vh;
+}
+
+.color-black {
+  color: #0f1317;
+}
+
+.bg-black {
+  background-color: #0f1317;
+}
+
+a {
+  text-decoration: none;
+  color: #0f1317;
+}
