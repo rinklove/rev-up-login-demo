@@ -13,7 +13,7 @@ const MainDiv = () => {
       const currentUrl = window.location.href || process.env.PUBLIC_URL;
       
       // 로그인 URL을 생성합니다.
-      const loginUrl = `http://localhost:8080/oauth2/authorization/${provider}?redirect_uri=${encodeURIComponent(currentUrl)}`;
+      const loginUrl = `http://localhost:8080/oauth2/authorization/${provider}?redirect_uri=${currentUrl}`;
       
       // 해당 URL로 리다이렉트하여 소셜 로그인 페이지로 이동합니다.
       window.location.href = loginUrl;
