@@ -11,6 +11,7 @@ const MainDiv = () => {
     try {
       // 현재 페이지의 URL을 가져와서 redirect_uri로 사용
       const currentUrl = window.location.href || process.env.PUBLIC_URL;
+      console.log(`redirect_uri = ${currentUrl}`);
       
       // 로그인 URL을 생성합니다.
       const loginUrl = `http://localhost:8080/oauth2/authorization/${provider}?redirect_uri=${currentUrl}`;
