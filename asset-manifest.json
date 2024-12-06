@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/rev-up-login-demo/static/css/main.e7b02aa1.css",
-    "main.js": "/rev-up-login-demo/static/js/main.75ea4dd3.js",
+    "main.js": "/rev-up-login-demo/static/js/main.028bf851.js",
     "static/js/453.9c1d551f.chunk.js": "/rev-up-login-demo/static/js/453.9c1d551f.chunk.js",
     "static/media/logo.svg": "/rev-up-login-demo/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/rev-up-login-demo/index.html",
     "main.e7b02aa1.css.map": "/rev-up-login-demo/static/css/main.e7b02aa1.css.map",
-    "main.75ea4dd3.js.map": "/rev-up-login-demo/static/js/main.75ea4dd3.js.map",
+    "main.028bf851.js.map": "/rev-up-login-demo/static/js/main.028bf851.js.map",
     "453.9c1d551f.chunk.js.map": "/rev-up-login-demo/static/js/453.9c1d551f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e7b02aa1.css",
-    "static/js/main.75ea4dd3.js"
+    "static/js/main.028bf851.js"
   ]
 }
