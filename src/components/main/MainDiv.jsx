@@ -6,17 +6,24 @@ const MainDiv = () => {
   const [refreshToken, setRefreshToken] = useState(null);
   const [error, setError] = useState(null);
 
-  // 로그인 요청을 보낼 함수
-  const handleLogin = (provider) => {
+  // 로그인 요청을 보낼 함수 (로컬 서버용)
+  const handleLocalhostLogin = (provider) => {
     try {
-      // 현재 페이지의 URL을 가져와서 redirect_uri로 사용
-      const currentUrl = window.location.href;
+      const currentUrl = window.location.href.split('?')[0];
       console.log(`redirect_uri = ${currentUrl}`);
-      
-      // 로그인 URL을 생성합니다.
       const loginUrl = `http://localhost:8080/oauth2/authorization/${provider}?redirect_uri=${encodeURIComponent(currentUrl)}`;
-      
-      // 해당 URL로 리다이렉트하여 소셜 로그인 페이지로 이동합니다.
+      window.location.href = loginUrl;
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  // 로그인 요청을 보낼 함수 (배포 서버용)
+  const handleReleaseServerLogin = (provider) => {
+    try {
+      const currentUrl = window.location.href.split('?')[0];
+      console.log(`redirect_uri = ${currentUrl}`);
+      const loginUrl = `https://revuprevup.o-r.kr/oauth2/authorization/${provider}?redirect_uri=${encodeURIComponent(currentUrl)}`;
       window.location.href = loginUrl;
     } catch (err) {
       setError(err.message);
@@ -37,38 +44,41 @@ const MainDiv = () => {
     }
   };
 
-  // 컴포넌트가 마운트되었을 때 URL에서 토큰을 추출
   useEffect(() => {
     getTokensFromUrl();
-  }, []); // 의존성 배열 비워두어 컴포넌트 마운트 시 한 번만 실행되도록 설정
+  }, []);
 
   return (
     <div className="main-div-container">
-      <h1>OAuth 로그인</h1>
+      <h1>테스트용 OAuth 로그인</h1>
       
-      {/* Google Login 버튼 */}
-      <button className="login-button" onClick={() => handleLogin('google')}>Google Login</button>
-      
-      {/* Github Login 버튼 */}
-      <button className="login-button" onClick={() => handleLogin('github')}>Github Login</button>
-      
-      {/* Kakao Login 버튼 */}
-      <button className="login-button" onClick={() => handleLogin('kakao')}>Kakao Login</button>
+      <div>
+        <button className="login-button" onClick={() => handleLocalhostLogin('google')}>localhost로 구글 로그인</button>
+        <button className="login-button" onClick={() => handleLocalhostLogin('github')}>localhost로 깃허브 로그인</button>
+        <button className="login-button" onClick={() => handleLocalhostLogin('kakao')}>localhost로 카카오 로그인</button>
+      </div>
 
-      {/* 로그인 후 토큰 정보 출력 */}
+      <div>
+        <button className="login-button" onClick={() => handleReleaseServerLogin('google')}>배포용 서버로 구글 로그인</button>
+        <button className="login-button" onClick={() => handleReleaseServerLogin('github')}>배포용 서버로 깃허브 로그인</button>
+        <button className="login-button" onClick={() => handleReleaseServerLogin('kakao')}>배포용 서버로 카카오 로그인</button>
+      </div>
+
       {error && <p className="error-message">Error: {error}</p>}
+
       <div className="token-info">
         <div>
-          <div><strong>Access Token</strong></div>
+          <strong>Access Token</strong>
           <div>{accessToken ? accessToken : 'No access token found'}</div>
         </div>
         <div>
-          <div><strong>Refresh Token:</strong></div>
+          <strong>Refresh Token</strong>
           <div>{refreshToken ? refreshToken : 'No refresh token found'}</div>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default MainDiv;

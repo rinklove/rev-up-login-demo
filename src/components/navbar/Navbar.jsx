@@ -20,15 +20,15 @@ const Navbar = () => {
       >
         <Link 
           className='auth-a'
-          to='/login'
+          to='/'
         >
-          로그인
+          테스트용 발급 사이트로 이동
         </Link>
         <Link
          className='auth-a'
-         to='/signup'
+         to='/release'
         >
-          회원가입
+          배포용 발급 사이트로 이동
         </Link>
       </div>
     </div>

@@ -1,3 +1,66 @@
-div.token-info {
-  width : 500px
+.main-div-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.login-button {
+  width: 250px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  max-width: 500px; /* 지정된 넓이 */
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; /* 콘텐츠가 넘치지 않도록 설정 */
+  word-wrap: break-word; /* 긴 텍스트가 자동으로 줄바꿈되도록 설정 */
+}
+
+.token-info div {
+  margin-bottom: 10px;
+  width: 100%; /* 100% 너비를 채우도록 설정 */
+}
+
+.token-info strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.token-info div {
+  font-size: 14px;
+  color: #555;
 }

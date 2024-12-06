@@ -5,6 +5,7 @@ import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
+import ReleaseMainDiv from '../components/main/ReleaseMainDiv'
 
 const WebPage = () => {
   return (
