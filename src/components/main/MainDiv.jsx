@@ -4,6 +4,7 @@ import './main-div.css';
 const MainDiv = () => {
   const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState(null);
+  const [isFirst, setFirst] = useState(); 
   const [error, setError] = useState(null);
 
   // 로그인 요청을 보낼 함수 (로컬 서버용)
@@ -23,7 +24,8 @@ const MainDiv = () => {
     try {
       const currentUrl = window.location.href.split('?')[0];
       console.log(`redirect_uri = ${currentUrl}`);
-      const loginUrl = `https://revuprevup.o-r.kr/oauth2/authorization/${provider}?redirect_uri=${encodeURIComponent(currentUrl)}`;
+      const prefix = provider === 'google' ? "http" : "https"
+      const loginUrl = `${prefix}://revuprevup.o-r.kr/oauth2/authorization/${provider}?redirect_uri=${encodeURIComponent(currentUrl)}`;
       window.location.href = loginUrl;
     } catch (err) {
       setError(err.message);
@@ -35,10 +37,12 @@ const MainDiv = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('access_token');
     const refresh = urlParams.get('refresh_token');
+    const isFirst = urlParams.get('is_first');
 
     if (token && refresh) {
       setAccessToken(token);
       setRefreshToken(refresh);
+      setFirst(isFirst);
     } else {
       setError('No tokens found in the URL');
     }
@@ -75,6 +79,13 @@ const MainDiv = () => {
           <strong>Refresh Token</strong>
           <div>{refreshToken ? refreshToken : 'No refresh token found'}</div>
         </div>
+        {
+          isFirst !== null &&
+          <div>
+            <strong>is First</strong>
+            <div>{isFirst}</div>
+          </div>
+        }
       </div>
     </div>
   );
